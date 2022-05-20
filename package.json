@@ -1,0 +1,19 @@
+{
+  "name": "about-nails",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/houssem-g/about-nails.git"
+  },
+  "author": "Houssem Gharsalli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/houssem-g/about-nails/issues"
+  },
+  "homepage": "https://github.com/houssem-g/about-nails#readme"
+}
