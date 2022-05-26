@@ -1,0 +1,53 @@
+.root {
+    flex-grow: 1;
+    background-color: #2b2b2b;
+    height: 10em;
+}
+
+.containerParrent{
+    display:flex;
+    justify-content: flex-end;
+    background-color: #2b2b2b;
+    height: 70%; 
+    max-width: 100%;
+}
+.parentDiv {
+    /* align-items: center; */
+    display:flex;
+    background-color: #2b2b2b;
+    height: 70%;
+}
+.buttonDiv {
+    color: white;
+    margin-top: 50%;
+    background-color: #2b2b2b;
+}
+.buttonParentDiv {
+    color: white;
+    background-color: #2b2b2b;
+    /* height: 10em; */
+    display:flex;
+}
+
+.titlesBar {
+    box-shadow: none;
+    border: none;
+    margin-top: 4%;
+    max-width: 100%;
+    background-color: #2b2b2b;
+    }
+.contentTitleBar {
+    color:white;
+    width: 82%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.magnifingGlass {
+    position: absolute;
+    margin-top: 4.1%;
+    width: 100%;
+
+}
+

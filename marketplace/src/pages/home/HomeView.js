@@ -14,7 +14,7 @@ import Footer from "../../components/footer";
 const HomeView = props => {
     const styles= {
         containerSearchField: {
-          marginLeft: "157vh",
+        //   marginLeft: "157vh",
           display: "flex",
         },
         textSearch: {
@@ -22,7 +22,7 @@ const HomeView = props => {
             marginTop: "2.4vh"
         },
         searchField: {
-            marginLeft: "5vh",
+            // marginLeft: "5vh",
             marginBottom: "1vh"
         },
         containerPage: {
@@ -46,10 +46,7 @@ const HomeView = props => {
 
     return (
         <div>
-                        
-            {/* <Button variant="contained" color="primary" onClick={()=>goTo(HOME)}>Home</Button> */}
-            
-            <Navbar titles = {["Cryptomonnaies", "Analysis", "Scoring"]}/>
+            <Navbar titles = {["Accueil", "Nouveautés", "Collections", "Catalogue", "Gel Pads", "Avis clients", "FAQ"]}/>
             {loading ? (<p>loading...</p>) : (
                     <div>
                         {error && (
@@ -61,8 +58,8 @@ const HomeView = props => {
                     </div>
                     )}
             <div style = {styles.containerSearchField}>
-                 <div style = {styles.textSearch} >Search</div>
-                 <div style = {styles.searchField}>
+                <div style = {styles.textSearch} >Search</div>
+                <div style = {styles.searchField}>
                     <Autocomplete
                         
                         onChange={
@@ -79,36 +76,20 @@ const HomeView = props => {
                             }
                         
                         }}
-                        // onKeyDown={(e, x) => {
-                        // if (e.key === 'Enter') {
-                        //     if (e.target.value !== null || e.target.value !== ""){
-                        //         let newEnteredValue = e.target.value.split(" ")
-                        //         newEnteredValue = newEnteredValue.pop().toUpperCase()
-                        //         let oneCrypto = data.filter((el)=> el["symbol"] === newEnteredValue)
-                                
-                        //         // setSelectedValue(oneCrypto[0]["name"] + " " + oneCrypto[0]["symbol"]);
-                        //         // console.log("selectedValue : ", {selectedValue})
-                        //         setFilteredData(oneCrypto);
-                        //     }  
-                        //     e.defaultMuiPrevented = true;
-                        //     // your handler code
-                        // }
-                        // }}
-                        // value = {selectedValue}
                         options={listCoins}
                         getOptionLabel={(option) => option.name}
                         sx={{ width: 300 }}
                         renderOption={(props, option) => (
                             <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
-                              <img
-                                loading="lazy"
-                                width="20"
-                                src={`${option.icon}`}
-                                alt=""
-                              />
-                              {option.name}
+                                <img
+                                    loading="lazy"
+                                    width="20"
+                                    src={`${option.icon}`}
+                                    alt=""
+                                />
+                                {option.name}
                             </Box>
-                          )}
+                        )}
                         renderInput={(params) => <TextField type="text" {...params} label="Crypto" />}
                     />
                 </div>

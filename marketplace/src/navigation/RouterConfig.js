@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "../pages/home";
 import Analyse  from "../pages/analysis"; 
 import { ROOT, Cryptomonnaies, Analysis, Scoring } from "./constants";
@@ -8,15 +8,15 @@ import { ROOT, Cryptomonnaies, Analysis, Scoring } from "./constants";
 export const RouterConfig = () => {
   return (
     <div>
-      <Switch>
+      <Routes>
         {/* List all public routes here */}
-        <Route exact path={ROOT} component={Home} />
-        <Route exact path={Cryptomonnaies} component={Home} />
-        <Route exact path={Analysis} component={Analyse} />
-        <Route exact path={Scoring} component={Analyse} />
-        <Route exact path="/" component={Home} />
-        <Route exact path="/about" component={Home} />
-        {/* <Route exact path={PAGE1} component={Page1} /> */}
+        <Route exact path={ROOT} element={<Home/>} />
+        <Route exact path={Cryptomonnaies} element={<Home/>} />
+        <Route exact path={Analysis} element={<Analyse/>} />
+        <Route exact path={Scoring} element={<Analyse/>} />
+        <Route exact path="/" element={<Home/>} />
+        <Route exact path="/about" element={<Home/>} />
+        {/* <Route exact path={PAGE1} element={<Page1/>} /> */}
 
         {/* List all private/auth routes here */}
         {/* <PrivateRoute path={AUTH_PAGE1}>
@@ -29,7 +29,7 @@ export const RouterConfig = () => {
 
         {/* List a generic 404-Not Found route here */}
 
-      </Switch>
+      </Routes>
     </div>
   );
 };

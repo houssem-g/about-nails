@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from '../../components/navbar';
 import InfoGeneral from '../../components/infoGeneral';
-import TradingViewWidget, { Themes } from 'react-tradingview-widget';
+// import TradingViewWidget, { Themes } from 'react-tradingview-widget';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useState, useEffect } from 'react';
@@ -142,7 +142,7 @@ export const AnalysisView = () => {
           </div>
         </div>
         <div style={styles.containerChart}>
-        <TradingViewWidget symbol={state.value} theme={Themes.DARK} locale="fr" autosize/>
+        {/* <TradingViewWidget symbol={state.value} theme={Themes.DARK} locale="fr" autosize/> */}
         </div>
       </div>
       <div style={styles.containerFooter}>
