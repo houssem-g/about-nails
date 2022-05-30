@@ -3,17 +3,22 @@
 import {  Grid } from "@material-ui/core";
 import styles from ".././styles/footer.module.css";
 import Social from "./social";
-import { socialGrid, infoGrid, joinGrid, spaceArround, footer } from "../styles/footerReactMUI";
-
-
+import { socialGrid, infoGrid, joinGrid, spaceArround, footer, hideGridOnMobile } from "../styles/footerReactMUI";
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import { useState } from 'react';
 
 
 const Footer = () => {
+  const [age, setAge] = useState('');
 
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
   return (
     <footer style={footer}>
-
-      <Grid container direction="row" style = {spaceArround}>
+      <Grid container direction="row" style = {window.screen.width > 750 ? spaceArround : hideGridOnMobile}>
+      {/* <Grid container direction="row" style = {spaceArround}> */}
         <Grid item  direction="column">
           <div className={styles.titleLegal}>
             <p> LEGAL</p>
@@ -69,14 +74,23 @@ const Footer = () => {
           <div className={styles.bodyJoinUs}>
             <p> Retrouvez-nous sur les réseaux sociaux, découvrez les dernières tendances et nouveautés </p>
           </div>
-          <div>
-
-          </div>
         </Grid>
         <Grid item direction="column" style={socialGrid}>
           <Social />
         </Grid>
       </Grid>
+      <Select
+        labelId="demo-simple-select-label"
+        id="demo-simple-select"
+        value={age}
+        label="Legal"
+        onChange={handleChange}
+        style = {window.screen.width > 750 ? {"display": "none"} : {"display": "block", "color": "white"}}
+      > 
+        <MenuItem value={10}>Ten</MenuItem>
+        <MenuItem value={20}>Twenty</MenuItem>
+        <MenuItem value={30}>Thirty</MenuItem>
+      </Select>
     </footer>
   );
 };
