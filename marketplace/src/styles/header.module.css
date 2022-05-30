@@ -1,53 +1,170 @@
-.root {
-    flex-grow: 1;
-    background-color: #2b2b2b;
-    height: 10em;
-}
-
-.containerParrent{
-    display:flex;
-    justify-content: flex-end;
-    background-color: #2b2b2b;
-    height: 70%; 
-    max-width: 100%;
-}
-.parentDiv {
-    /* align-items: center; */
-    display:flex;
-    background-color: #2b2b2b;
-    height: 70%;
-}
-.buttonDiv {
-    color: white;
-    margin-top: 50%;
-    background-color: #2b2b2b;
-}
-.buttonParentDiv {
-    color: white;
-    background-color: #2b2b2b;
-    /* height: 10em; */
-    display:flex;
-}
-
-.titlesBar {
-    box-shadow: none;
-    border: none;
-    margin-top: 4%;
-    max-width: 100%;
-    background-color: #2b2b2b;
+@media screen and (min-width: 750px) {
+    .root {
+        flex-grow: 1;
+        background-color: #2b2b2b;
+        height: 10em;
     }
-.contentTitleBar {
-    color:white;
-    width: 82%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    .containerParrent{
+        display:flex;
+        justify-content: space-between;
+        background-color: #2b2b2b;
+        height: 70%; 
+        max-width: 100%;
+    }
+    .parentDiv {
+        /* align-items: center; */
+        display:flex;
+        background-color: #2b2b2b;
+        height: 70%;
+    }
+    .buttonDiv {
+        color: white;
+        margin-top: 50%;
+        background-color: #2b2b2b;
+    }
+    .buttonParentDiv {
+        color: white;
+        background-color: #2b2b2b;
+        /* height: 10em; */
+        display:flex;
+    }
+
+    .titlesBar {
+        box-shadow: none;
+        border: none;
+        margin-top: 4%;
+        max-width: 100%;
+        background-color: #2b2b2b;
+        flex-wrap: wrap;
+        }
+    .contentTitleBar {
+        color:white;
+        width: 72%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+    .magnifingGlass {
+        /* position: absolute; */
+        margin-top: 4.1%;
+        /* width: 100%; */
+
+    }
+    .mobileMagnifingGlass {
+        display: none;
+    }
+    .iconMenu {
+        display: none;
+    }
+    .iconLogin {
+        display: none;
+    }
+    .iconCart {
+        display: none;
+    }
 
 }
-.magnifingGlass {
-    position: absolute;
-    margin-top: 4.1%;
-    width: 100%;
 
+@media screen and (max-width: 750px) {
+    .root {
+        flex-grow: 1;
+        background-color: #2b2b2b;
+        height: 10em;
+    }
+    .iconMenu {
+        flex-grow: 1;
+        margin-top: 3.5%;
+    }
+
+    .containerParrent{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: #2b2b2b;
+        height: 70%; 
+        max-width: 100%;
+    }
+    /* .parentDiv {
+
+    } */
+
+    .buttonParentDiv {
+        display:flex;
+        background-color: #2b2b2b;
+        height: 70%;
+        margin-top: 3%;
+    }
+    .buttonDiv {
+        display: none;
+    }
+    .titlesBar {
+        display: none;
+        }
+    .contentTitleBar {
+        flex-grow: 75;
+        text-align: center;
+        color: white;
+        margin-left: 7%;
+    }
+    .magnifingGlass {
+        display: none;
+    }
+    .mobileMagnifingGlass {
+        flex-grow: 1;
+        margin-top: 4.8%;
+    }
 }
 
+@media screen and (max-width: 350px) {
+    .root {
+        flex-grow: 1;
+        background-color: #2b2b2b;
+        height: 10em;
+    }
+    .iconMenu {
+        flex-grow: 1;
+        margin-top: 6%;
+    }
+
+    .containerParrent{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: #2b2b2b;
+        height: 70%; 
+        max-width: 100%;
+    }
+    /* .parentDiv {
+
+    } */
+
+    .buttonParentDiv {
+        display:flex;
+        background-color: #2b2b2b;
+        height: 70%;
+        margin-top: 0;
+        flex-direction: column;
+    }
+    .buttonDiv {
+        display: none;
+    }
+    .titlesBar {
+        display: none;
+        }
+    .contentTitleBar {
+        font-size: 7px;
+        text-align: center;
+        color: white;
+        margin-top: 7%;
+        flex-grow: 20;
+        margin-left: 10%;
+    }
+    .magnifingGlass {
+        display: none;
+    }
+    .mobileMagnifingGlass {
+        flex-grow: 1;
+        margin-top: 8%;
+    }
+}

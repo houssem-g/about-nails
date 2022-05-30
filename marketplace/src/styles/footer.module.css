@@ -1,36 +1,76 @@
+@media screen and (min-width: 750px) {
+    .noPoints {
+        list-style: none;
+    }
+    a {
+        color: #f3f3f3;
+        text-decoration: none;
+    }
+    .titleLegal {
+        margin-left: 10.4%;
+        font-size: 25px;
+        color: #f3f3f3;
+        height: 2em;
+        width: auto;
+    }
+    .titleInfo {
+        margin-left: 10%;
+        font-size: 25px;
+        color: #f3f3f3;
+        height: 2em;
+        width: auto;
+    }
+    .titleJoinUs {
+        margin-left: -0.5%;
+        font-size: 25px;
+        color: #f3f3f3;
+        height: 2em;
+        width: auto;
+    }
+    .bodyJoinUs{
+        color: #f3f3f3;
+        width: 70%;
+    }
+    .myGrid {
+        width : "15px !important";
+    }
+}
 
-.noPoints {
-    list-style: none;
-}
-a {
-    color: #f3f3f3;
-    text-decoration: none;
-}
-.titleLegal {
-    margin-left: 10.4%;
-    font-size: 25px;
-    color: #f3f3f3;
-    height: 2em;
-    width: auto;
-}
-.titleInfo {
-    margin-left: 10%;
-    font-size: 25px;
-    color: #f3f3f3;
-    height: 2em;
-    width: auto;
-}
-.titleJoinUs {
-    margin-left: -0.5%;
-    font-size: 25px;
-    color: #f3f3f3;
-    height: 2em;
-    width: auto;
-}
-.bodyJoinUs{
-    color: #f3f3f3;
-    width: 70%;
-}
-.myGrid {
-    width : "15px !important";
+@media screen and (max-width: 750px) {
+
+    .noPoints {
+        list-style: none;
+    }
+    a {
+        color: #f3f3f3;
+        text-decoration: none;
+    }
+    .titleLegal {
+        /* margin-left: 10.4%; */
+        font-size: 25px;
+        color: #f3f3f3;
+        height: 2em;
+        width: auto;
+    }
+    .titleInfo {
+        margin-left: 10%;
+        font-size: 25px;
+        color: #f3f3f3;
+        height: 2em;
+        width: auto;
+    }
+    .titleJoinUs {
+        margin-left: -0.5%;
+        font-size: 25px;
+        color: #f3f3f3;
+        height: 2em;
+        width: auto;
+    }
+    .bodyJoinUs{
+        color: #f3f3f3;
+        width: 70%;
+    }
+    .myGrid {
+        width : "15px !important";
+    }
 }

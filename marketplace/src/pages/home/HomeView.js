@@ -59,7 +59,7 @@ const HomeView = props => {
                     )}
             <div style = {styles.containerSearchField}>
                 <div style = {styles.textSearch} >Search</div>
-                <div style = {styles.searchField}>
+                {/* <div style = {styles.searchField}>
                     <Autocomplete
                         
                         onChange={
@@ -92,7 +92,7 @@ const HomeView = props => {
                         )}
                         renderInput={(params) => <TextField type="text" {...params} label="Crypto" />}
                     />
-                </div>
+                </div> */}
             </div>
             <div style = {styles.containerPage}>
                 <EnhancedTable data = {filteredData}/>
