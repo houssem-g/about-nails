@@ -8,7 +8,6 @@ import { useState, useEffect } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import styles from ".././styles/header.module.css";
 import { sxCompMagnifing, sxCompMagnifingMobile } from ".././styles/headerReactMUI"
-import { makeStyles } from '@material-ui/core/styles';
 import { StylesProvider } from "@material-ui/core/styles";
 import ".././styles/muiTab.css"
 import IconButton from '@mui/material/IconButton';

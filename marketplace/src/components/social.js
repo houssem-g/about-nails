@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
   snsIcon: {
     width: "30px",
     height: "30px",
+    marginTop: "1%",
 
     [theme.breakpoints.down("xs")]: {
       width: "25px",
