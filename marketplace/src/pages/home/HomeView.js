@@ -2,13 +2,9 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import useAxios from '../../api/axiosCRUD';
+// import useAxios from '../../api/axiosCRUD';
 import Navbar from '../../components/navbar';
-import EnhancedTable from '../../components/table'
-import { useState, useEffect } from 'react';
-import Autocomplete from '@mui/material/Autocomplete';
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
+// import { useState, useEffect } from 'react';
 import Footer from "../../components/footer";
 import products from "../../constants/allproducts";
 import Product from "../../components/products"
@@ -19,19 +15,19 @@ const HomeView = props => {
             flexDirection: "column"
         }
     };
-    const { listCoins, response, loading, error } = useAxios({
-        method: 'get',
-        url: '/allCrypto/'
-    });
-    const [data, setData] = useState([]);
-    const [filteredData, setFilteredData] = useState(data);
+    // const { listCoins, response, loading, error } = useAxios({
+    //     method: 'get',
+    //     url: '/allCrypto/'
+    // });
+    // const [data, setData] = useState([]);
+    // const [filteredData, setFilteredData] = useState(data);
     // const [selectedValue, setSelectedValue] = useState('');
-    useEffect(() => {
-        if (response !== null) {
-            setFilteredData(response);
-            setData(response)
-        }
-    }, [response]);
+    // useEffect(() => {
+    //     if (response !== null) {
+    //         setFilteredData(response);
+    //         setData(response)
+    //     }
+    // }, [response]);
 
 
     return (

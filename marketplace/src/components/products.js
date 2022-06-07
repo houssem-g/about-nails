@@ -8,7 +8,6 @@ import Typography from '@mui/material/Typography';
 // import imageUrl  from ".././static/images"
 /* REACT ROUTER */
 import { Link } from "react-router-dom";
-import { requirePropFactory } from "@material-ui/core";
 
 /* COMPONENTS */
 
