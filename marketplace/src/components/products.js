@@ -13,7 +13,6 @@ import { Link } from "react-router-dom";
 
 function Product({ product }) {
 
-    console.log("product.image : ", `${product.image}`)
     return (
         <Card className="card">
             <Link to={`/product/${product._id}`}>

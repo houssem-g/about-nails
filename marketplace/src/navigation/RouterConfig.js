@@ -2,7 +2,8 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/home";
 import Analyse  from "../pages/analysis"; 
-import { ROOT, Cryptomonnaies, Analysis, Scoring } from "./constants";
+import Product  from "../pages/product_details"; 
+import { ROOT, Cryptomonnaies, Analysis, Scoring, ProductDetail } from "./constants";
 // import { dark, light } from "../styles/muiTheme";
 
 export const RouterConfig = () => {
@@ -14,6 +15,7 @@ export const RouterConfig = () => {
         <Route exact path={Cryptomonnaies} element={<Home/>} />
         <Route exact path={Analysis} element={<Analyse/>} />
         <Route exact path={Scoring} element={<Analyse/>} />
+        <Route exact path={ProductDetail} element={<Product/>} />
         <Route exact path="/" element={<Home/>} />
         <Route exact path="/about" element={<Home/>} />
         {/* <Route exact path={PAGE1} element={<Page1/>} /> */}
