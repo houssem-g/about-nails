@@ -8,6 +8,7 @@ authors = ["houssem-g <houssem.gharsalli@hotmail.fr>"]
 python = "^3.8"
 mypy = "^0.971"
 flake8 = "^5.0.4"
+SQLAlchemy = "^1.4.40"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
