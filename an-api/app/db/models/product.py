@@ -5,10 +5,9 @@ from sqlalchemy.orm import relationship  # type: ignore
 
 # from .brand import Brand  # noqa
 # from .category import Category  # noqa
-from .mixins import Timestamp
 
 
-class ProductClass(Timestamp):
+class ProductClass():
     __tablename__ = "product"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -20,7 +19,7 @@ class ProductClass(Timestamp):
     forth_picture = Column(String(256))
     fith_picture = Column(String(256))
     main_video = Column(String(256))
-    stock = Column(Integer)
+    stock_id = Column(Integer, ForeignKey("product_inventory.id"), nullable=True)
     model_id = Column(Integer, ForeignKey("model.id"), nullable=True)
     category_id  = Column(Integer, ForeignKey("category.id"), nullable=True) 
     tag_id = Column(Integer, ForeignKey("tab.id"), nullable=True) 
@@ -29,6 +28,7 @@ class ProductClass(Timestamp):
     parent_tag = relationship("TagClass", backref="product")
     parent_category = relationship("CategoryClass", backref="product")
     parent_model = relationship("ModelClass", backref="product")
+    parent_product_inventory = relationship("ProductInventoryClass", backref="product")
 
 
 # to check : https://docs.sqlalchemy.org/en/14/orm/relationships.html

@@ -11,20 +11,36 @@ from sqlalchemy.schema import (  # type: ignore
     Table,
 )
 
-from app.api.utils.users import create_new_user
-from app.core.schemas.users import UserCreate
-from app.db.db_setup import Base, SessionLocal, engine
-from app.db.models.brand import Brand
-from app.db.models.category import Category
-from app.db.models.item import Item
-from app.db.models.item_class import ItemClass
-from app.db.models.items_configurations import ItemConfig
-from app.db.models.right import Right
-from app.db.models.role import Role
-from app.db.models.user_has_role import UserHasRoles
-from app.db.models.users import Profile, User
+# from app.api.utils.users import create_new_user
+# from app.core.schemas.users import UserCreate
+from app.db.db_configuration import Base, SessionLocal, engine
+from app.db.models.cart import CartClass
+from app.db.models.category import CategoryClass
+from app.db.models.item import ItemClass
+from app.db.models.model import ModelClass
+from app.db.models.order_details import OrderDetailsClass
+from app.db.models.payment import PaymentClass
+from app.db.models.product_inventory import ProductInventoryClass
+from app.db.models.product import ProductClass
+from app.db.models.review import ReviewClass
+from app.db.models.shipping_costs import shippingCostClass
+from app.db.models.tag import TagClass
+from app.db.models.user import UserClass
 
-DB_MODELS = [Brand, Category, Item, ItemClass, ItemConfig, Right, Role, Profile, User, UserHasRoles]
+DB_MODELS = [
+    CartClass,
+    CategoryClass,
+    ItemClass,
+    ModelClass,
+    OrderDetailsClass,
+    PaymentClass,
+    ProductInventoryClass,
+    ProductClass,
+    ReviewClass,
+    shippingCostClass,
+    TagClass,
+    UserClass
+    ]
 
 
 class TableManager:
@@ -40,7 +56,7 @@ class TableManager:
         """
         self.session = SessionLocal
 
-    async def create_all_tables(self, on_admin_email: EmailStr, on_admin_username: str, on_admin_password: str):
+    async def create_all_tables(self):
         """create table on DB
 
         Args:
@@ -53,11 +69,11 @@ class TableManager:
 
         all_tables = sorted(self.get_all_tables_names())
 
-        on_admin_user = UserCreate(email=on_admin_email, username=on_admin_username, password=on_admin_password)
+        # on_admin_user = UserCreate(email=on_admin_email, username=on_admin_username, password=on_admin_password)
 
-        response = await create_new_user(self.session, on_admin_user, on_admin_flag=True)
+        # response = await create_new_user(self.session, on_admin_user, on_admin_flag=True)
 
-        return f"Tables {all_tables} created with success!", response
+        return f"Tables {all_tables} created with success!" #  , response
 
     async def delete_all_tables(self):
         connection = engine.connect()
