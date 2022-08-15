@@ -4,7 +4,9 @@ import { BrowserRouter } from "react-router-dom";
 import { RouterConfig } from "./navigation/RouterConfig";
 import "./styles/header.module.css"
 import "./styles/footer.module.css"
-
+import "./styles/sectionHome.css"
+import "./styles/product_details/productDetails.css"
+// import "./static/images/*"
 
 const App = () => {
   return (

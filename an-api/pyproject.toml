@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "an-api"
+version = "0.1.0"
+description = ""
+authors = ["houssem-g <houssem.gharsalli@hotmail.fr>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+mypy = "^0.971"
+flake8 = "^5.0.4"
+SQLAlchemy = "^1.4.40"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+# mypy global options:
+
+[tool.mypy]
+python_version = 3.8
+disallow_untyped_defs = true
+
+
+[tool.flake8]
+ignore = ['E231', 'E241']
+per-file-ignores = [
+    '__init__.py:F401',
+]
+max-line-length = 88
+count = true

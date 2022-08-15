@@ -5,5 +5,8 @@
         "**/*.code-search": false,
         "**/bower_components": false,
         "**/node_modules": false
+    },
+    "files.associations": {
+        "python.pythonPath": "C:\\Users\\belga\\AppData\\Local\\pypoetry\\Cache\\virtualenvs\\an-api-1laD3pGc-py3.8"
     }
 }

@@ -7,18 +7,27 @@ import { socialGrid, infoGrid, joinGrid, spaceArround, footer, hideGridOnMobile 
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
-
+import ExpandCollapse from "./expandCollapse"
 
 const Footer = () => {
-  const [age, setAge] = useState('');
+  const [styleToDisplay, setStyleToDisplay] = useState(spaceArround);
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
-  };
+  
+  window.addEventListener('resize', function(event) {
+    if(window.innerWidth < 750) {
+      setStyleToDisplay(hideGridOnMobile)
+    }
+    else {
+      setStyleToDisplay(spaceArround)
+    }
+    
+  });
+  
+  
+
   return (
     <footer style={footer}>
-      <Grid container direction="row" style = {window.screen.width > 750 ? spaceArround : hideGridOnMobile}>
-      {/* <Grid container direction="row" style = {spaceArround}> */}
+      <Grid container direction="row" style = { styleToDisplay }>
         <Grid item  direction="column">
           <div className={styles.titleLegal}>
             <p> LEGAL</p>
@@ -79,18 +88,8 @@ const Footer = () => {
           <Social />
         </Grid>
       </Grid>
-      <Select
-        labelId="demo-simple-select-label"
-        id="demo-simple-select"
-        value={age}
-        label="Legal"
-        onChange={handleChange}
-        style = {window.screen.width > 750 ? {"display": "none"} : {"display": "block", "color": "white"}}
-      > 
-        <MenuItem value={10}>Ten</MenuItem>
-        <MenuItem value={20}>Twenty</MenuItem>
-        <MenuItem value={30}>Thirty</MenuItem>
-      </Select>
+      <ExpandCollapse  />
+
     </footer>
   );
 };

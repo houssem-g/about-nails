@@ -2,102 +2,48 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import useAxios from '../../api/axiosCRUD';
+// import useAxios from '../../api/axiosCRUD';
 import Navbar from '../../components/navbar';
-import EnhancedTable from '../../components/table'
-import { useState, useEffect } from 'react';
-import Autocomplete from '@mui/material/Autocomplete';
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
+// import { useState, useEffect } from 'react';
 import Footer from "../../components/footer";
-
+import products from "../../constants/allproducts";
+import Product from "../../components/products"
 const HomeView = props => {
-    const styles= {
-        containerSearchField: {
-        //   marginLeft: "157vh",
-          display: "flex",
-        },
-        textSearch: {
-            
-            marginTop: "2.4vh"
-        },
-        searchField: {
-            // marginLeft: "5vh",
-            marginBottom: "1vh"
-        },
-        containerPage: {
-            minHeight: "65vh"
+    const styles = {
+        containerHomeView: {
+            display: "flex",
+            flexDirection: "column"
         }
-      };
-    const { listCoins, response, loading, error } = useAxios({
-        method: 'get',
-        url: '/allCrypto/'
-    });
-    const [data, setData] = useState([]);
-    const [filteredData, setFilteredData] = useState(data);
+    };
+    // const { listCoins, response, loading, error } = useAxios({
+    //     method: 'get',
+    //     url: '/allCrypto/'
+    // });
+    // const [data, setData] = useState([]);
+    // const [filteredData, setFilteredData] = useState(data);
     // const [selectedValue, setSelectedValue] = useState('');
-    useEffect(() => {
-    if (response !== null) {
-        setFilteredData(response);
-        setData(response)
-    }
-    }, [response]);
+    // useEffect(() => {
+    //     if (response !== null) {
+    //         setFilteredData(response);
+    //         setData(response)
+    //     }
+    // }, [response]);
 
 
     return (
-        <div>
-            <Navbar titles = {["Accueil", "Nouveautés", "Collections", "Catalogue", "Gel Pads", "Avis clients", "FAQ"]}/>
-            {loading ? (<p>loading...</p>) : (
-                    <div>
-                        {error && (
-                            <div>
-                                <p>{error.message}</p>
-                            </div>
-                        )}
-                        <div>{data && <p>{data.id}</p>}</div>
-                    </div>
-                    )}
-            <div style = {styles.containerSearchField}>
-                <div style = {styles.textSearch} >Search</div>
-                {/* <div style = {styles.searchField}>
-                    <Autocomplete
-                        
-                        onChange={
-                        (event, newValue) => {
-                            if (newValue && newValue.name !== null && newValue.name !== ""){
-                                let symbolAndName = newValue.name.split(" ")
-                                let symbol = symbolAndName.pop().toUpperCase()
-                                let cryptoName = symbolAndName.join(" ")
-                                let oneCrypto = data.filter((el)=> el["symbol"] === symbol && el["name"] === cryptoName)
-                                setFilteredData(oneCrypto);
-                            }
-                            else {
-                                setFilteredData(data);
-                            }
-                        
-                        }}
-                        options={listCoins}
-                        getOptionLabel={(option) => option.name}
-                        sx={{ width: 300 }}
-                        renderOption={(props, option) => (
-                            <Box component="li" sx={{ '& > img': { mr: 2, flexShrink: 0 } }} {...props}>
-                                <img
-                                    loading="lazy"
-                                    width="20"
-                                    src={`${option.icon}`}
-                                    alt=""
-                                />
-                                {option.name}
-                            </Box>
-                        )}
-                        renderInput={(params) => <TextField type="text" {...params} label="Crypto" />}
-                    />
-                </div> */}
+        <div style={styles.containerHomeView}>
+            <Navbar titles={["Accueil", "Nouveautés", "Collections", "Catalogue", "Gel Pads", "Avis clients", "FAQ"]} />
+            <div className='contentListNails'>
+                <section className='listNails'>
+                        {products.map((product) => {
+                            return (
+                                <Product product={product}/>
+                            )
+                        })}
+                </section>
             </div>
-            <div style = {styles.containerPage}>
-                <EnhancedTable data = {filteredData}/>
-            </div>
-            <Footer/>
+            <Footer />
+            
         </div>
     )
 }
