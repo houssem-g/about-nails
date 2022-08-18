@@ -2,12 +2,12 @@ from sqlalchemy import Boolean, Column, Enum, Integer, String, Text  # type: ign
 from sqlalchemy_utils import URLType  # type: ignore
 
 # from app.core.schemas.users import UserTypes
-# from app.db.db_setup import Base
+from app.db.db_configuration import Base
 
 from .mixins import Timestamp
 
 
-class UserClass(Timestamp):
+class UserClass(Timestamp, Base):
     __tablename__ = "user"
 
     id = Column(Integer, primary_key=True, index=True)

@@ -1,13 +1,12 @@
 from sqlalchemy import Column, ForeignKey, Integer, String  # type: ignore
 from sqlalchemy.orm import relationship  # type: ignore
-
-# from app.db.db_setup import Base
-
+from app.db.db_configuration import Base
+from .mixins import Timestamp
 # from .brand import Brand  # noqa
 # from .category import Category  # noqa
 
 
-class ProductClass():
+class ProductClass(Timestamp, Base):
     __tablename__ = "product"
 
     id = Column(Integer, primary_key=True, index=True)
@@ -22,7 +21,7 @@ class ProductClass():
     stock_id = Column(Integer, ForeignKey("product_inventory.id"), nullable=True)
     model_id = Column(Integer, ForeignKey("model.id"), nullable=True)
     category_id  = Column(Integer, ForeignKey("category.id"), nullable=True) 
-    tag_id = Column(Integer, ForeignKey("tab.id"), nullable=True) 
+    tag_id = Column(Integer, ForeignKey("tag.id"), nullable=True) 
 
     
     parent_tag = relationship("TagClass", backref="product")

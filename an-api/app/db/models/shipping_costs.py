@@ -1,10 +1,10 @@
 from sqlalchemy import Column, Integer, ForeignKey, Float, String  # type: ignore
-# from app.db.db_setup import Base
+from app.db.db_configuration import Base
 from .mixins import Timestamp
 from sqlalchemy.orm import relationship  # type: ignore
 
 
-class shippingCostClass(Timestamp):
+class shippingCostClass(Timestamp, Base):
     __tablename__ = "shipping_cost"
     id = Column(Integer, primary_key=True, index=True)
     city = Column(String(100), nullable=False)

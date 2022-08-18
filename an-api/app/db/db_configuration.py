@@ -1,19 +1,20 @@
-from scripts import python_secret
 import logging
 import sqlalchemy.orm as orm  # type: ignore
 from sqlalchemy import create_engine  # type: ignore
 from sqlalchemy.ext.declarative import declarative_base  # type: ignore
 from sqlalchemy_utils import create_database, database_exists  # type: ignore
+import sqlalchemy
+from app.db.config import settings # import user_name, password, host_name, port_number, db_name
+# connection_str = 'postgresql+psycopg2://postgres:admin@localhost:5432/andb'
+# connection_str = f'postgresql+psycopg2://{settings.user_name}:{settings.password}@{settings.host_name}:{settings.port_number}/{settings.db_name}' 
 
-from app.db.config import settings
 
-args = {
-    "sslcert": "home/houssem/.postgresql/client-cert.pem",
-    "sslkey": "home/houssem/.postgresql/client-key.pem",
-    "sslrootcert": "home/houssem/.postgresql/ca-cert.pem",
-    "sslmode": "disable",
-}
-
+# args = {
+#     "sslcert": "home/houssem/.postgresql/client-cert.pem",
+#     "sslkey": "home/houssem/.postgresql/client-key.pem",
+#     "sslrootcert": "home/houssem/.postgresql/ca-cert.pem",
+#     "sslmode": "disable",
+# }
 
 def get_engine(user, passwd, host, port, database):
     """

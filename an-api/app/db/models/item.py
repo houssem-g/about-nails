@@ -1,10 +1,10 @@
 from sqlalchemy import Column, Integer, ForeignKey, Float  # type: ignore
-# from app.db.db_setup import Base
+from app.db.db_configuration import Base
 from .mixins import Timestamp
 from sqlalchemy.orm import relationship  # type: ignore
 
 
-class ItemClass(Timestamp):
+class ItemClass(Timestamp, Base):
     __tablename__ = "item"
     id = Column(Integer, primary_key=True, index=True)
     price = Column(Float)

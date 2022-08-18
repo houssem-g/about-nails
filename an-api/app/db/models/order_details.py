@@ -1,15 +1,15 @@
 from sqlalchemy import Column, Integer, ForeignKey, Date, ARRAY,String  # type: ignore
-# from app.db.db_setup import Base
+from app.db.db_configuration import Base
 from .mixins import Timestamp
 from sqlalchemy.orm import relationship  # type: ignore
 
 
-class OrderDetailsClass(Timestamp):
+class OrderDetailsClass(Timestamp, Base):
     __tablename__ = "order_details"
     id = Column(Integer, primary_key=True, index=True)
     payment_id = Column(Integer, ForeignKey("payment.id"), nullable=True)
-    user_id = Column(ARRAY(Integer), ForeignKey("user.id"), nullable=True)
-    item_id = Column(ARRAY(Integer), ForeignKey("item.id"), nullable=True)
+    user_id = Column(Integer, ForeignKey("user.id"), nullable=True)
+    item_id = Column(Integer, ForeignKey("item.id"), nullable=True)
     order_number = Column(Integer)
     delivery_status = Column(String(256))
     quantity = Column(Integer) 

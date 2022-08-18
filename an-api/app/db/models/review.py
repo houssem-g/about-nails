@@ -1,10 +1,10 @@
 from sqlalchemy import Column, Integer, String, ForeignKey  # type: ignore
-# from app.db.db_setup import Base
+from app.db.db_configuration import Base
 from .mixins import Timestamp
 from sqlalchemy.orm import relationship  # type: ignore
 
 
-class ReviewClass(Timestamp):
+class ReviewClass(Timestamp, Base):
     __tablename__ = "review"
     id = Column(Integer, primary_key=True, index=True)
     rating = Column(Integer)

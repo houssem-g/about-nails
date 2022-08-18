@@ -48,7 +48,7 @@ class TableManager:
     This class is to manage the tables in our DB by doing action like create, delete or check
     """
 
-    def __init__(self) -> None:
+    def __init__(self):
         """
         Args:
             table (_type_): the name of table
@@ -72,7 +72,7 @@ class TableManager:
         # on_admin_user = UserCreate(email=on_admin_email, username=on_admin_username, password=on_admin_password)
 
         # response = await create_new_user(self.session, on_admin_user, on_admin_flag=True)
-
+        print(f"Tables {all_tables} created with success!")
         return f"Tables {all_tables} created with success!" #  , response
 
     async def delete_all_tables(self):
@@ -113,7 +113,7 @@ class TableManager:
         metadata.reflect(bind=engine)
         for tab in metadata.sorted_tables:
             list_tables_in_db.append(str(tab))
-
+        
         return list_tables_in_db
 
     def get_table(self, table_name) -> Union[Table, None]:
