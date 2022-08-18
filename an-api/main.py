@@ -1,10 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-# from app.api.v1 import (route_brands, route_categories, route_items,
-#                         route_items_classes, route_items_configurations,
-#                         route_rights, route_roles, route_user_has_roles,
-#                         route_users)
+from app.api.v1 import (route_homepage)
 
 app = FastAPI(
     title="about-nails API",
@@ -45,7 +42,7 @@ app.add_middleware(
 async def root():
     return {"message": "test api"}
 
-# app.include_router(route_users.router)
+app.include_router(route_homepage.router)
 # app.include_router(route_brands.router)
 # app.include_router(route_rights.router)
 # app.include_router(route_roles.router)
