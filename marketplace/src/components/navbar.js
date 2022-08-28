@@ -1,6 +1,6 @@
 import React from 'react';
-import Tabs from '@material-ui/Tabs';
-import Tab from '@material-ui/Tab';
+import { Tabs } from '@mui/material';
+import {Tab} from '@mui/material';
 import { Modal, Button } from '@mui/material';
 import * as All from '../navigation/constants';
 import {useNavigate, useLocation} from 'react-router-dom'
@@ -8,9 +8,9 @@ import { useState, useEffect } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import styles from ".././styles/header.module.css";
 import { sxCompMagnifing, sxCompMagnifingMobile } from ".././styles/headerReactMUI"
-import { StylesProvider } from "@material-ui/styles";
+// import { StylesProvider } from "@mui/styles";
 import ".././styles/muiTab.css"
-import IconButton from '@mui/material/IconButton';
+import {IconButton} from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ShoppingCart from '@mui/icons-material/ShoppingCart';
 import BasicMenu from "./select"
@@ -69,7 +69,7 @@ const Navbar = ({titles}) => {
 
 
   return (
-    <StylesProvider injectFirst>
+    <div injectFirst>
     <div className={styles.containerParrent}>
         <div className={styles.iconMenu}>
           {/* <IconButton  color="secondary" aria-label="List" component="span">
@@ -125,7 +125,7 @@ const Navbar = ({titles}) => {
         </Modal>
 
       </div>
-    </StylesProvider>
+    </div>
   );
 }
 

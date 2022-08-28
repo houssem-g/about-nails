@@ -21,7 +21,7 @@ import Switch from '@mui/material/Switch';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 
 

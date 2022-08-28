@@ -1,6 +1,6 @@
 import React from "react";
-// import { dark, light } from "@material-ui/core/styles/createPalette";
-import { Switch, Button } from "@material-ui";
+// import { dark, light } from "@mui/material/core/styles/createPalette";
+import { Switch, Button } from "@mui/material";
 
 export const ThemeSwitch = ({ darkState, handleThemeChange }) => {
     return (

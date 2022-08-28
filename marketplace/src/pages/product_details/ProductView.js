@@ -4,8 +4,8 @@ import Navbar from '../../components/navbar';
 import Footer from "../../components/footer";
 import { useParams } from "react-router-dom";
 import products from "../../constants/allproducts";
-import CardMedia from '@mui/material/CardMedia';
-import { Button } from '@material-ui';
+import {CardMedia} from '@mui/material';
+import { Button } from '@mui/material';
 
 const ProductView = props => {
     const styles = {

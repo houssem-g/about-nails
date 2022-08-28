@@ -1,6 +1,6 @@
 
 
-import {  Grid } from "@material-ui";
+import { Grid } from '@mui/material';
 import styles from ".././styles/footer.module.css";
 import Social from "./social";
 import { socialGrid, infoGrid, joinGrid, spaceArround, footer, hideGridOnMobile } from "../styles/footerReactMUI";
