@@ -1,4 +1,4 @@
-import { Container } from '@material-ui/core';
+import { Container } from '@material-ui';
 import React from 'react';
 import { useState, useEffect } from 'react';
 import Collapsible from 'react-collapsible';

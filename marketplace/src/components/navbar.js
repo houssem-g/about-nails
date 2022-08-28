@@ -1,14 +1,14 @@
 import React from 'react';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import Button from '@material-ui/core/Button';
+import Tabs from '@material-ui/Tabs';
+import Tab from '@material-ui/Tab';
+import { Modal, Button } from '@mui/material';
 import * as All from '../navigation/constants';
 import {useNavigate, useLocation} from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import styles from ".././styles/header.module.css";
 import { sxCompMagnifing, sxCompMagnifingMobile } from ".././styles/headerReactMUI"
-import { StylesProvider } from "@material-ui/core/styles";
+import { StylesProvider } from "@material-ui/styles";
 import ".././styles/muiTab.css"
 import IconButton from '@mui/material/IconButton';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -42,6 +42,7 @@ const Navbar = ({titles}) => {
   }
 
   const [value, setValue] = useState(0);
+  const [open, setOpen] = useState(false);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -61,6 +62,11 @@ const Navbar = ({titles}) => {
     listOfTab.push(<Tab label={val} {...dynamicProps(ind)} onClick={()=>goTo(All[val])}/>)
     }
   )
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => {
+    setOpen(false);
+  };
+
 
   return (
     <StylesProvider injectFirst>
@@ -94,19 +100,31 @@ const Navbar = ({titles}) => {
             </IconButton>
           </div>
           <div className={styles.iconCart}>
-          <IconButton  color="secondary" aria-label="List" component="span">
-            <ShoppingCart/>
-          </IconButton>
-        </div>
+            <IconButton  color="secondary" aria-label="List" component="span">
+              <ShoppingCart/>
+            </IconButton>
+          </div>
 
           <div className={styles.buttonDiv}>
-              <Button color="inherit">Login</Button>
+              <Button color="inherit" onClick={handleOpen}>Login</Button>
           </div>
           <div className={styles.buttonDiv}>
               <Button color="inherit">Cart</Button>
           </div>
         </div>
-    </div>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        > Hello world
+          {/* <LogIn
+          onClose={handleClose}
+          isNewUser = {false}
+          /> */}
+        </Modal>
+
+      </div>
     </StylesProvider>
   );
 }

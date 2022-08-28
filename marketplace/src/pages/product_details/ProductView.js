@@ -5,7 +5,7 @@ import Footer from "../../components/footer";
 import { useParams } from "react-router-dom";
 import products from "../../constants/allproducts";
 import CardMedia from '@mui/material/CardMedia';
-import { Button } from '@material-ui/core';
+import { Button } from '@material-ui';
 
 const ProductView = props => {
     const styles = {

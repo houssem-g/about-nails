@@ -1,5 +1,5 @@
-import { makeStyles } from "@material-ui/core/styles";
-import { Grid } from "@material-ui/core";
+import { makeStyles } from "@material-ui/styles";
+import { Grid } from "@material-ui";
 
 import InstagramIcon from "@material-ui/icons/Instagram";
 import FacebookIcon from "@material-ui/icons/Facebook";
