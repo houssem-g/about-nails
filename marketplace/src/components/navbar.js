@@ -1,14 +1,12 @@
 import React from 'react';
-import { Tabs } from '@mui/material';
-import {Tab} from '@mui/material';
-import { Modal, Button } from '@mui/material';
+import { Tabs, Tab, DialogContent, DialogContentText, DialogTitleTypeMap, Button } from '@mui/material';
 import * as All from '../navigation/constants';
 import {useNavigate, useLocation} from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import styles from ".././styles/header.module.css";
 import { sxCompMagnifing, sxCompMagnifingMobile } from ".././styles/headerReactMUI"
-// import { StylesProvider } from "@mui/styles";
+import { StylesProvider } from "@mui/styles";
 import ".././styles/muiTab.css"
 import {IconButton} from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -69,7 +67,7 @@ const Navbar = ({titles}) => {
 
 
   return (
-    <div injectFirst>
+    <StylesProvider injectFirst>
     <div className={styles.containerParrent}>
         <div className={styles.iconMenu}>
           {/* <IconButton  color="secondary" aria-label="List" component="span">
@@ -112,20 +110,10 @@ const Navbar = ({titles}) => {
               <Button color="inherit">Cart</Button>
           </div>
         </div>
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        > Hello world
-          {/* <LogIn
-          onClose={handleClose}
-          isNewUser = {false}
-          /> */}
-        </Modal>
+
 
       </div>
-    </div>
+    </StylesProvider>
   );
 }
 

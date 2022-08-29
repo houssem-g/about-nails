@@ -1,4 +1,4 @@
-import { makeStyles } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import { Grid } from "@mui/material";
 
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -11,21 +11,21 @@ import HomeIcon from '@mui/icons-material/Home';
 
 // import { socialMedia } from "data/socialMedia";
 
-const useStyles = makeStyles((theme) => ({
+const classes = {
   snsIcon: {
     width: "30px",
     height: "30px",
     marginTop: "1%",
 
-    [theme.breakpoints.down("xs")]: {
-      width: "25px",
-      height: "25px",
-    },
+    // [theme.breakpoints.down("xs")]: {
+    //   width: "25px",
+    //   height: "25px",
+    // },
     "&:hover": {
-      color: theme.palette.info.main,
+      color: "pink",
     },
   },
-}));
+}
 
 const Social = ({ color }) => {
     const socialMedia = {
@@ -37,7 +37,7 @@ const Social = ({ color }) => {
         // You can add like this
         // twitter: "https://twitter.com",
     };
-  const classes = useStyles();
+  // const classes = useStyles();
   // if you want to add more social medias, add it to here and /data/socialMedia.js.
   // and import the Material Icon, then add the code.
   const { instagram, facebook, github, homepage } = socialMedia;
