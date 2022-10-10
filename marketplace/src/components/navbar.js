@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tabs, Tab, DialogContent, DialogContentText, DialogTitleTypeMap, Button } from '@mui/material';
+import { Tabs, Tab, Dialog, TextField, DialogContent, DialogContentText, DialogTitle, DialogActions, Button } from '@mui/material';
 import * as All from '../navigation/constants';
 import {useNavigate, useLocation} from 'react-router-dom'
 import { useState, useEffect } from 'react';
@@ -12,6 +12,9 @@ import {IconButton} from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ShoppingCart from '@mui/icons-material/ShoppingCart';
 import BasicMenu from "./select"
+import SignUp from './signup';
+import SignIn from './signin';
+
 
 function dynamicProps(index) {
   return {
@@ -41,6 +44,7 @@ const Navbar = ({titles}) => {
 
   const [value, setValue] = useState(0);
   const [open, setOpen] = useState(false);
+  const [openSignin, setOpenSignin] = useState(false);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -60,11 +64,23 @@ const Navbar = ({titles}) => {
     listOfTab.push(<Tab label={val} {...dynamicProps(ind)} onClick={()=>goTo(All[val])}/>)
     }
   )
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => {
+  const handleOpen = () => setOpenSignin(true);
+  const handleCloseSignUp = () => {
     setOpen(false);
   };
-
+  const handleCloseSignIn = () => {
+    setOpenSignin(false);
+  };
+  const switchSigninSignup = (val) => {
+    if (val === "openSignin"){
+      setOpen(false)
+      setOpenSignin(true)
+    }
+    else if (val === "openSignup") {
+      setOpenSignin(false)
+      setOpen(true)
+    }
+  }
 
   return (
     <StylesProvider injectFirst>
@@ -102,17 +118,26 @@ const Navbar = ({titles}) => {
               <ShoppingCart/>
             </IconButton>
           </div>
-
+            
           <div className={styles.buttonDiv}>
               <Button color="inherit" onClick={handleOpen}>Login</Button>
+
+              <Dialog onClose={handleCloseSignUp} open={open}>
+                <SignUp switcherProp = {val => switchSigninSignup(val)}/>
+              </Dialog>
+
+              <Dialog onClose={handleCloseSignIn} open ={openSignin}>
+                <SignIn switcherProp = {val => switchSigninSignup(val)} />
+              </Dialog>
           </div>
           <div className={styles.buttonDiv}>
               <Button color="inherit">Cart</Button>
           </div>
         </div>
 
-
+        
       </div>
+      
     </StylesProvider>
   );
 }

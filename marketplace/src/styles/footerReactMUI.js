@@ -3,5 +3,5 @@ export const legalGrid = {"width": "30%"};
 export const infoGrid = {"width": "25%", "marginLeft": "7%"};
 export const joinGrid = {"width": "30%"};
 export const spaceArround = {"justifyContent": "spaceEvenly", "flexWrap": "wrap"};
-export const footer = {"bottom": "0", "backgroundColor": "#A89B8C", "width": "100%", "overflow": "hidden"};
+export const footer = {"bottom": "0", "backgroundColor": "#dcc3c3", "width": "100%", "overflow": "hidden"};
 export const hideGridOnMobile = {"display": "none"};
