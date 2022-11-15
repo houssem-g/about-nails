@@ -2,8 +2,8 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/home";
 import Analyse  from "../pages/analysis"; 
-import Product  from "../pages/product_details"; 
-import { ROOT, Cryptomonnaies, Analysis, Scoring, ProductDetail } from "./constants";
+import Product  from "../pages/product_details";
+import { ROOT, Cryptomonnaies, Analysis, Scoring, ProductDetail, CART } from "./constants";
 // import { dark, light } from "../styles/muiTheme";
 
 export const RouterConfig = () => {
