@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import products from "../../constants/allproducts";
 import {CardMedia} from '@mui/material';
 import { Button } from '@mui/material';
+import { useState, useEffect } from 'react';
 
 const ProductView = props => {
     const styles = {
@@ -14,6 +15,22 @@ const ProductView = props => {
             flexDirection: "column"
         }
     };
+    const [data, setData] = useState([{}]);
+
+    useEffect(() => {
+        let items = localStorage.getItem("items_selected")
+        let all_items = []
+        if (data[0] && Object.values(data[0]).length){
+            all_items.push(JSON.stringify(data[0]))
+            if(items && Object.keys(items)) {
+                localStorage.setItem("items_selected", JSON.stringify(data[0]) + ";"+ items);  
+            } else {
+              localStorage.setItem("items_selected", JSON.stringify(data[0]));   
+            }
+            
+                         
+        }
+        }, [data]);
 
     const { id } = useParams();
     const productDetail = products.filter((obj) => obj._id == id)[0]
@@ -44,7 +61,7 @@ const ProductView = props => {
                             <p>{productDetail.price}€</p>  
                         </div>
                         <div className='contentBtnAddToCart'>
-                            <Button variant="contained" className='addToCart'>Add To Cart</Button>
+                            <Button variant="contained" className='addToCart' onClick={function() {setData([productDetail])}} >Add To Cart</Button>
                             
                         </div>
                         </div>
@@ -58,7 +75,6 @@ const ProductView = props => {
                             <p>{productDetail.countInStock > 0 ? "In Stock" : "Out of Stock"}</p>
                         </div>
                         <div className='buyProductChildDiv'>
-                            <Button variant="contained" className='addToCart'>Add To Cart</Button>
                             
                         </div>
                     </div> */}

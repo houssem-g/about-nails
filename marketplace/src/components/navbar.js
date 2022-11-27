@@ -131,7 +131,7 @@ const Navbar = ({titles}) => {
               </Dialog>
           </div>
           <div className={styles.buttonDiv}>
-              <Button color="inherit">Cart</Button>
+              <Button color="inherit" onClick={()=>goTo(All["Cart"])}>Cart</Button>
           </div>
         </div>
 

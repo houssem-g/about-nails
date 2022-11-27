@@ -6,6 +6,7 @@ import "./styles/header.module.css"
 import "./styles/footer.module.css"
 import "./styles/sectionHome.css"
 import "./styles/product_details/productDetails.css"
+import "./styles/cart/cart.module.css"
 // import "./static/images/*"
 
 const App = () => {

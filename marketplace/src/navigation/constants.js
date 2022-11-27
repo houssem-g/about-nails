@@ -5,7 +5,7 @@ export const Cryptomonnaies = "/allCrypto/";
 export const Analysis= "/analysis/:currency?";
 export const Scoring = "/scoring/";
 export const ProductDetail = "/product/:id";
-export const CART = "/cart";
+export const Cart = "/cart";
 export function val(val) {
   throw new Error('Function not implemented.');
 }
