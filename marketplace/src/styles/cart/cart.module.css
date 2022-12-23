@@ -20,7 +20,7 @@
     display: flex;
     flex-direction: row;
     background: white;
-    padding: 20px 20px 20px 15px;
+    padding: 0px 20px 0px 15px;
     border-bottom: solid 1px #b4b2b2;
 }
 .cartBodyLeft {
@@ -41,6 +41,7 @@
     flex-direction: column;
     margin-top: 30px;
     margin-left: 20px;
+    width: 100%;
 }
 
 .cartBodyDesc {
@@ -57,3 +58,21 @@
     margin-bottom: -5px;
 }
 
+.cartBodyPriceLeft {
+    text-align: end;
+}
+.cartBodyTitle {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 20px;
+    font-family: Arial,sans-serif;
+}
+p {
+    font-family: Arial,sans-serif;
+}
+.hide {
+    display: none !important;
+  }
+.nohide {
+    display: block !important;
+}
