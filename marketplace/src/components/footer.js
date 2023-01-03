@@ -28,7 +28,7 @@ const Footer = () => {
   return (
     <footer style={footer}>
       <Grid container direction="row" style = { styleToDisplay }>
-        <Grid item  direction="column">
+        <Grid item  >
           <div className={styles.titleLegal}>
             <p> LEGAL</p>
           </div>
@@ -49,7 +49,7 @@ const Footer = () => {
             </ul>
           </div>
         </Grid>
-        <Grid item direction="column" style={infoGrid}>
+        <Grid item  style={infoGrid}>
           <div className={styles.titleInfo}>
             <p> INFORMATIONS</p>
           </div>
@@ -76,7 +76,7 @@ const Footer = () => {
             </ul>
           </div>
         </Grid>
-        <Grid item direction="column" style = {joinGrid}>
+        <Grid item style = {joinGrid}>
           <div className={styles.titleJoinUs}>
             <p> REJOIGNEZ-NOUS</p>
           </div>
@@ -84,12 +84,11 @@ const Footer = () => {
             <p> Retrouvez-nous sur les réseaux sociaux, découvrez les dernières tendances et nouveautés </p>
           </div>
         </Grid>
-        <Grid item direction="column" style={socialGrid}>
+        <Grid item style={socialGrid}>
           <Social />
         </Grid>
       </Grid>
       <ExpandCollapse  />
-
     </footer>
   );
 };

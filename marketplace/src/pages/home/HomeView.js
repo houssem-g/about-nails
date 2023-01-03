@@ -15,29 +15,17 @@ const HomeView = props => {
             flexDirection: "column"
         }
     };
-    // const { listCoins, response, loading, error } = useAxios({
-    //     method: 'get',
-    //     url: '/allCrypto/'
-    // });
-    // const [data, setData] = useState([]);
-    // const [filteredData, setFilteredData] = useState(data);
-    // const [selectedValue, setSelectedValue] = useState('');
-    // useEffect(() => {
-    //     if (response !== null) {
-    //         setFilteredData(response);
-    //         setData(response)
-    //     }
-    // }, [response]);
+    const allTitles = ["Accueil", "Nouveautés", "Collections", "Catalogue", "Gel Pads", "Avis clients", "FAQ"]
 
 
     return (
         <div style={styles.containerHomeView}>
-            <Navbar titles={["Accueil", "Nouveautés", "Collections", "Catalogue", "Gel Pads", "Avis clients", "FAQ"]} />
+            <Navbar titles={allTitles} />
             <div className='contentListNails'>
                 <section className='listNails'>
-                        {products.map((product) => {
+                        {products.map((product, i) => {
                             return (
-                                <Product product={product}/>
+                                <Product key={i} product={product}/>
                             )
                         })}
                 </section>

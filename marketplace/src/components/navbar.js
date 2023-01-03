@@ -25,16 +25,18 @@ function dynamicProps(index) {
 }
 
 const dict_paths = {
-  "/Accueil/" : 0,
-  "/analysis/": 1,
-  "/scoring/": 2,
   "/": 0,
+  "/Accueil/" : 0,
+  "/Nouveautés/": 1,
+  "/Collections/": 2,
+  "/Catalogue/" : 3,
+  "/Gelpads/" : 4,
+  "/Avisclients/" : 5,
+  "/Faq/" : 6,
 };
 
 
-// Navbar is the exported component
 const Navbar = ({titles}) => {
-  // const classeStyles = useStyles();
   let history = useNavigate();
 
   const goTo = (path) => {
@@ -54,14 +56,17 @@ const Navbar = ({titles}) => {
   let curPath = dict_paths[location]
   useEffect(() => {
     
-    if (curPath!== "/accueil") {
+    if (Object.keys(dict_paths).includes(location)) {
       setValue(dict_paths[location]);
+    }
+    else {
+      setValue(false)
     }
     }, [curPath, location]);
 
   const listOfTab = []
   titles.forEach((val, ind) => {
-    listOfTab.push(<Tab label={val} {...dynamicProps(ind)} onClick={()=>goTo(All[val])}/>)
+    listOfTab.push(<Tab key = {val} label={val} {...dynamicProps(ind)} onClick={()=>goTo(All[val])}/>)
     }
   )
   const handleOpen = () => setOpenSignin(true);
@@ -98,7 +103,7 @@ const Navbar = ({titles}) => {
 
         <div className={styles.contentTitleBar}>
           <h2 className={styles.logo}>About Nails</h2>
-          <Tabs className={styles.titlesBar} value={value} onChange={handleChange} aria-label="simple tabs example" textColor="none" >
+          <Tabs className={styles.titlesBar} value={value} onChange={handleChange} aria-label="simple tabs example" textColor="inherit" >
           {listOfTab}
           </Tabs>
         </div>

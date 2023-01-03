@@ -16,7 +16,7 @@ const BasicMenu = ({titles}) => {
     };
     const listOfTitles = []
     titles.forEach((val) => {
-        listOfTitles.push(<MenuItem style={{"width": "170px"}} onClick={handleClose}>{val}</MenuItem>)
+        listOfTitles.push(<MenuItem key = {val} style={{"width": "170px"}} onClick={handleClose}>{val}</MenuItem>)
     }
     )
 
@@ -26,6 +26,7 @@ const BasicMenu = ({titles}) => {
                 <ListIcon />
             </IconButton>
             <Menu
+                
                 anchorEl={anchorEl}
                 open={open}
                 onClose={handleClose}

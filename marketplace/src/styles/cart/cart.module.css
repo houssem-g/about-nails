@@ -10,10 +10,19 @@
     flex-direction: "column";
 }
 .CartBodycontainer{
-    background-color: #e3d8d8a6;
+    background-color: #e7bfc673;
     display: flex;
     flex-direction: row;
     padding: 20px 15px 20px 20px;
+}
+#emptyBodyCart {
+    display: none;
+}
+.classEmptyBodyCart{
+    background: white;
+    padding: 1px 0px 10px 30px;
+    height: 114px;
+    margin-bottom: 13px;
 }
 
 .cartBodyLeftContainer {
@@ -31,10 +40,24 @@
     width: 80%;
 }
 .cartBodyRightContainer {
-    background: white;
-    padding: 20px 20px 20px 15px;
-    width: 16%;
+    padding: 0px 0px 0px 0px;
+    width: 18%;
     margin-left: 23px;
+    display: flex;
+    flex-direction: column;
+}
+
+.priceTopRight {
+    height: 100px;
+    background: white;
+    flex-grow: 1;
+    padding: 20px 7px 0px 16px;
+}
+.priceBottomRight {
+    background: white;
+    margin-top: 15px;
+    flex-grow: 10;
+    padding: 19px 7px 0px 16px;
 }
 .cartBodyRight{
     display: flex;
@@ -42,6 +65,9 @@
     margin-top: 30px;
     margin-left: 20px;
     width: 100%;
+    height: 220px;
+    position: relative;
+    
 }
 
 .cartBodyDesc {
@@ -52,6 +78,16 @@
     padding: 20px 20px 20px 15px;
     border-bottom: solid 1px #b4b2b2;
 }
+.CartPanierFooter {
+    background: white;
+    padding: 20px 20px 20px 15px;
+    border-bottom: solid 1px #b4b2b2;
+    height: 25px;
+}
+
+.CartPanierFooter > span {
+    float: right;
+}
 
 .CartPanierPrice{
     float: right;
@@ -60,19 +96,65 @@
 
 .cartBodyPriceLeft {
     text-align: end;
+    font-weight: bold;
 }
 .cartBodyTitle {
     font-size: 20px;
     font-weight: bold;
     line-height: 20px;
-    font-family: Arial,sans-serif;
+    font-family: Verdana;
+}
+span, h1 {
+    font-family: Verdana;
 }
 p {
-    font-family: Arial,sans-serif;
+    font-family: Verdana;
+    font-size: 15px;
 }
 .hide {
-    display: none !important;
+    display: none;
+
   }
 .nohide {
-    display: block !important;
+    display: block;
+}
+
+.selectQte {
+    min-width: 60px;
+}
+.highOrder {
+    display: block;
+    width: 230px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cartQteContent {
+    bottom: 0;
+    position: absolute;
+    display: flex;
+}
+.deleteItem {
+    color: #007185;
+}
+
+.deleteItemContent {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.separatorLine{
+    display: inline-block;
+    border-left: 1px solid #ccc;
+    margin: 0 10px;
+    height: 25px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.linkToOurSite {
+    color: #007185;
+    text-decoration: underline;
 }

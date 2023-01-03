@@ -11,16 +11,12 @@ import HomeIcon from '@mui/icons-material/Home';
 
 // import { socialMedia } from "data/socialMedia";
 
-const classes = {
+const sxclasses = {
   snsIcon: {
     width: "30px",
     height: "30px",
     marginTop: "1%",
 
-    // [theme.breakpoints.down("xs")]: {
-    //   width: "25px",
-    //   height: "25px",
-    // },
     "&:hover": {
       color: "pink",
     },
@@ -66,7 +62,7 @@ const Social = ({ color }) => {
         href={homepage}
       >
         <HomeIcon
-          className={classes.snsIcon}
+          sx={sxclasses}
           color={color ? "primary" : "secondary"}
         />
       </Grid>
@@ -78,7 +74,7 @@ const Social = ({ color }) => {
         href={facebook}
       >
         <FacebookIcon
-          className={classes.snsIcon}
+          sx={sxclasses}
           color={color ? "primary" : "secondary"}
         />
       </Grid>
@@ -90,7 +86,7 @@ const Social = ({ color }) => {
         href={instagram}
       >
         <InstagramIcon
-          className={classes.snsIcon}
+          sx={sxclasses}
           color={color ? "primary" : "secondary"}
         />
       </Grid>
@@ -102,7 +98,7 @@ const Social = ({ color }) => {
         href={github}
       >
         <GitHubIcon
-          className={classes.snsIcon}
+          sx={sxclasses}
           color={color ? "primary" : "secondary"}
         />
       </Grid>

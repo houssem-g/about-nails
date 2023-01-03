@@ -6,39 +6,112 @@ import Navbar from '../../components/navbar';
 import Footer from "../../components/footer";
 import Item from '../../components/cartItem';
 import styles from "../../styles/cart/cart.module.css"
-import CardMedia from '@mui/material/CardMedia';
 
 const CartView = props => {
-
-    let items = localStorage.getItem("items_selected").split(";")
-    let res = []
-    items.forEach((el) => {
-        res.push(JSON.parse(el)) 
-    })
     
+    let items = localStorage.getItem("items_selected") 
+    let res = []
+    let obj = {}
+    let initTotPrice = 0.0
+    let initTotQte = 0
+    if(items != undefined){
+        items.split(";").forEach((el) => {
+            obj = JSON.parse(el)
+            obj = obj.qte ? {...obj} : {...obj, ...{qte: 1, totPrice: obj.price}}
+            initTotPrice =  (parseFloat(initTotPrice) + parseFloat(obj.totPrice)).toFixed(2);
+            initTotQte += parseInt(obj.qte);
+            res.push(obj)
+            
+        })
+
+    }
+
+    const [displayBodyCart, setDisplayBodyCart] = res.length ? React.useState("CartPanierHeader") : React.useState("hide") 
+    const [displayEmptyBodyCart, setDisplayEmptyBodyCart] = res.length ? React.useState("hide") : React.useState("classEmptyBodyCart") 
+    let [resUpdated, setResUpdated] = React.useState(res)
+    let [totPageQte, setTotPageQte] = React.useState(initTotQte)
+    let [totPagePrice, setTotPagePrice] = React.useState(parseFloat(initTotPrice).toFixed(2))
+    
+    const getQteAndTotPrice = (id, qte) => {
+        let cntElement = 0
+        let sumElement = 0.0
+        resUpdated.forEach((el) => {
+            if (el._id == id) {
+                el.qte = qte
+                el.totPrice = parseFloat(el.price * qte).toFixed(2);
+            }
+            cntElement = parseInt(cntElement) + parseInt(el.qte)
+            sumElement = (parseFloat(sumElement) + parseFloat(el.totPrice)).toFixed(2)
+        })
+        setTotPageQte(cntElement)
+        setTotPagePrice(sumElement)
+    }
+
+    const updateItems = (new_items) => {
+        res = []
+        let cntElement = 0
+        let sumElement = 0.0
+        if(new_items == ""){
+            localStorage.removeItem("items_selected")
+            setDisplayEmptyBodyCart("classEmptyBodyCart")
+            setDisplayBodyCart("hide")
+            setResUpdated(res)
+            setTotPageQte(0)
+            setTotPagePrice(0.0)
+            return
+        }
+        new_items.split(";").forEach((el) => {
+            res.push(JSON.parse(el))
+            cntElement = parseInt(cntElement) + parseInt(JSON.parse(el).qte)
+            sumElement = (parseFloat(sumElement) + parseFloat(JSON.parse(el).totPrice)).toFixed(2)
+        })
+        setResUpdated(res)
+        setTotPageQte(cntElement)
+        setTotPagePrice(sumElement)
+    }
+
+
+
     return (
         <div style={styles.containerHomeView}>
             <Navbar titles={["Accueil", "Nouveautés", "Collections", "Catalogue", "Gel Pads", "Avis clients", "FAQ"]} />
-            
             <div className={styles.CartBodycontainer}>
                 <div className={styles.CartAllItems}>
-                    <div className={styles.CartPanierHeader}>
+                    <div id="bodyCart" className={styles[displayBodyCart]}>
                         <h1>Votre Pannier</h1>
-                        <p>selectionner tout les elements</p>
                         <span className={styles.CartPanierPrice}>Prix</span>
+                        
                     </div>
-                    
-                    {res.map((item) => {
+                    <div id="emptyBodyCart" className={styles[displayEmptyBodyCart]}>
+                        <h1>
+                            Votre panier About nails est vide.
+                        </h1>
+                        <p>
+                            Votre panier est à votre service. Donnez-lui un but : remplissez-le avec nos produits. <br></br>
+                            Continuez les achats sur <a className={styles.linkToOurSite} href="http://localhost:3000">about-nails.com</a>
+                        </p>
+                    </div>
+                    {resUpdated.map((item) => {
                         return (
-                            <Item item={item}/>
+                            <Item item={item} getQteAndTotPrice={getQteAndTotPrice} updateItems={updateItems}/>
                         )
                     })}
-                    
+                    <div className={styles.CartPanierFooter}>
+                        <span>Sous-total ({totPageQte} articles): <strong>{totPagePrice}€</strong></span>
+                    </div>
                 </div>
                 <div className={styles.cartBodyRightContainer}>
-                    Sous-total
+                    <div className={styles.priceTopRight}>
+                        Sous-total ({totPageQte} articles): <strong>{totPagePrice}€</strong>  
+                    </div>
+                    <div className={styles.priceBottomRight}>
+                    
+                    </div>
+
+                    
                 </div>
             </div>
+
             <Footer />
         </div>
     )
