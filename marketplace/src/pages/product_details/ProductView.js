@@ -42,7 +42,7 @@ const ProductView = props => {
                         <h3>{productDetail.name}</h3>
                         
                         <CardMedia
-                            style={{  height: "400px", maxWidth: "500px" }}
+                            style={{  maxHeight: "400px", maxWidth: "500px" }}
                             component="img"
                             src = {require (`../../static/images/${productDetail.image}`)}
                         />
