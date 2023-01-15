@@ -1,0 +1,63 @@
+.cartQteContentMobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .select {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .input {
+    display: none;
+  }
+  
+  .deleteText {
+    display: none;
+  }
+  
+  .separatorLine {
+    width: 1px;
+    height: 20px;
+    background-color: #ccc;
+    margin: 0 10px;
+  }
+  
+  .formControl {
+    width: 60px;
+  }
+  
+  .inputLabel {
+    font-size: 12px;
+    color: #000;
+  }
+  
+  .selectMenu {
+    padding: 5px;
+    border: none;
+  }
+  
+  .inputField {
+    width: 60px;
+    margin-right: 10px;
+  }
+  
+  .buttonUpdate {
+    background-color: #f44336;
+    color: #fff;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: none;
+  }
+  .displayNone {
+    display: none;
+  }
+  .displayBlock {
+    display: block
+  }

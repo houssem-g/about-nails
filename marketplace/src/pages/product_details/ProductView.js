@@ -51,16 +51,16 @@ const ProductView = props => {
                         <h4>Description:</h4>
                         <p>{productDetail.description}</p>
                         <div className='buyProductChildDiv'>
-                            <h4>Status:</h4>
+                            <span>Status:</span>
                             <p>{productDetail.countInStock > 0 ? "In Stock" : "Out of Stock"}</p>
                         </div>
                 
                         <div className='buyProductChildDiv'>
-                            <h4>Price:</h4>
+                            <span>Price:</span>
                             <p>{productDetail.price}€</p>  
                         </div>
                         <div className='contentBtnAddToCart'>
-                            <Button variant="contained" className='addToCart' onClick={function() {setData([productDetail])}} >Add To Cart</Button>
+                            <Button variant="contained" className='addToCart' onClick={function() {setData([productDetail]); window.location.href = "http://localhost:3000/";}} >Add To Cart</Button>
                             
                         </div>
                         </div>

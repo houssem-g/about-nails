@@ -19,14 +19,20 @@ function Item({ item, getQteAndTotPrice, updateItems }) {
     const [qte, setQte] = useState(1);
     const [displayInput, setDisplayInput] = useState("hide")
     const [displaySelect, setDisplaySelect] = useState("nohide")
+    const [displayDeleteText, setDisplayDeleteText] = useState("deleteItem")
+    const [defautInputValue, setDefautInputValue] = useState(item.qte)
+    
     const idselect = `idselect-${item._id}`
     React.useEffect(()=> {
         if(item.qte < 10){
             setDisplayInput("hide")
-            setDisplaySelect("nohide")    
+            setDisplaySelect("nohide")
+            setDisplayDeleteText("deleteItem")
         } else {
             setDisplayInput("nohide")
             setDisplaySelect("hide")
+            setDisplayDeleteText("deleteItemForInput")
+            setDefautInputValue(item.qte)
         }
         setQte(item.qte)
     }, [item])
@@ -44,6 +50,7 @@ function Item({ item, getQteAndTotPrice, updateItems }) {
         if (parseInt(entered_value) > 0) {
             setQte(entered_value)
         }
+        
     }
     const applyDeleteItem = (event) => {
         event.preventDefault()
@@ -96,11 +103,13 @@ function Item({ item, getQteAndTotPrice, updateItems }) {
         if(selected_value < 10){
            setDisplayInput("hide")
            setDisplaySelect("nohide")
+           setDisplayDeleteText("deleteItem")
            setQte(selected_value);             
         }
         else{
             setDisplayInput("nohide")
             setDisplaySelect("hide")
+            setDisplayDeleteText("deleteItemForInput")
             setQte(10);
         }
       };
@@ -108,60 +117,110 @@ function Item({ item, getQteAndTotPrice, updateItems }) {
 
     return (
         <div className={styles.cartBodyLeftContainer}>
-            <div className={styles.cartBodyLeft}>
-                <CardMedia
-                    style={{  height: "230px" }}
-                    component="img"
-                    src = {require (`../static/images/${item.image}`)}
-                />
-            </div>
-            <div className={styles.cartBodyRight}>
-                <div className={styles.cartBodyPriceLeft}>{item.price}€</div>
-                <div className={styles.cartBodyTitle}>{item.name}</div>
-                <div className={styles.cartBodyDesc}><p>{item.description}</p></div>
-                <div className={styles.cartQteContent}>
-                    <div className={styles[displaySelect]}>
-                        <FormControl 
-                            id={idselect}
-                            sx = {sxSelectForm}
-                            size="small"
-                            value={qte}
-                        >
-                            <div>
-                                <InputLabel sx = {sxInputLabel}>Qté : </InputLabel>   
-                            </div>
-                               
-                            <Select 
-                                value={qte}
-                                onClick={handleChange}
-                                sx={{border: "none"}}
-                            >
-                                <MenuItem value={1}>1</MenuItem>
-                                <MenuItem value={2}>2</MenuItem>
-                                <MenuItem value={3}>3</MenuItem>
-                                <MenuItem value={4}>4</MenuItem>
-                                <MenuItem value={5}>5</MenuItem>
-                                <MenuItem value={6}>6</MenuItem>
-                                <MenuItem value={7}>7</MenuItem>
-                                <MenuItem value={8}>8</MenuItem>
-                                <MenuItem value={9}>9</MenuItem>
-                                <MenuItem value={10}>+10</MenuItem>
-                            </Select>
-                        </FormControl>
-                    </div>
-                    <div className={styles[displayInput]}>
-                        <TextField sx={sxInputField} defaultValue={10} onChange={inputChange}/>
-                        <Button sx={sxButtonUpdate} onClick={updateQte}>mettre à jour</Button>
-                    </div>
-                    <span className={styles.separatorLine}></span>
-                    
-                    <div className={styles.deleteItemContent}>
-                        <a href="" className={styles.deleteItem} onClick={applyDeleteItem}>
-                            supprimer
-                        </a>                        
-                    </div>
+            <div className={styles.cartBodyLeftContent}>
+                <div className={styles.cartBodyLeft}>
+                    <CardMedia
+                        style={{  height: "230px", width: "190px" }}
+                        component="img"
+                        src = {require (`../static/images/${item.image}`)}
+                    />
                 </div>
+                <div className={styles.cartBodyRight}>
+                    <div className={styles.cartBodyTitle}>
+                        {item.name}
+                        <div className={styles.cartBodyPriceLeft}>{item.price}€</div>
+                    </div>
+                    
+                    <div className={styles.cartBodyDesc}><p>{item.description}</p></div>
+                    <div className={styles.cartQteContent}>
+                        <div className={styles[displaySelect]}>
+                            <FormControl 
+                                id={idselect}
+                                sx = {sxSelectForm}
+                                size="small"
+                                value={qte}
+                            >
+                                <div>
+                                    <InputLabel sx = {sxInputLabel}>Qté : </InputLabel>   
+                                </div>
+                                
+                                <Select 
+                                    value={qte}
+                                    onClick={handleChange}
+                                    sx={{border: "none"}}
+                                >
+                                    <MenuItem value={1}>1</MenuItem>
+                                    <MenuItem value={2}>2</MenuItem>
+                                    <MenuItem value={3}>3</MenuItem>
+                                    <MenuItem value={4}>4</MenuItem>
+                                    <MenuItem value={5}>5</MenuItem>
+                                    <MenuItem value={6}>6</MenuItem>
+                                    <MenuItem value={7}>7</MenuItem>
+                                    <MenuItem value={8}>8</MenuItem>
+                                    <MenuItem value={9}>9</MenuItem>
+                                    <MenuItem value={10}>+10</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </div>
+                        <div className={styles[displayInput]}>
+                            <TextField id="inputField" sx={sxInputField} defaultValue={defautInputValue} onChange={inputChange}/>
+                            <Button sx={sxButtonUpdate} onClick={updateQte}>mettre à jour</Button>
+                        </div>
+                        <span className={styles.separatorLine}></span>
+                        
+                        <div>
+                            <a href="" className={styles[displayDeleteText]} onClick={applyDeleteItem}>
+                                supprimer
+                            </a>                        
+                        </div>
+                    </div>
+                    
+                </div>
+
                 
+
+            </div>
+            <div className={styles.cartQteContentMobile}>
+                <div className={styles[displaySelect]}>
+                    <FormControl 
+                        id={idselect}
+                        sx = {sxSelectForm}
+                        size="small"
+                        value={qte}
+                    >
+                        <div>
+                            <InputLabel sx = {sxInputLabel}>Qté : </InputLabel>   
+                        </div>
+                            
+                        <Select 
+                            value={qte}
+                            onClick={handleChange}
+                            sx={{border: "none"}}
+                        >
+                            <MenuItem value={1}>1</MenuItem>
+                            <MenuItem value={2}>2</MenuItem>
+                            <MenuItem value={3}>3</MenuItem>
+                            <MenuItem value={4}>4</MenuItem>
+                            <MenuItem value={5}>5</MenuItem>
+                            <MenuItem value={6}>6</MenuItem>
+                            <MenuItem value={7}>7</MenuItem>
+                            <MenuItem value={8}>8</MenuItem>
+                            <MenuItem value={9}>9</MenuItem>
+                            <MenuItem value={10}>+10</MenuItem>
+                        </Select>
+                    </FormControl>
+                </div>
+                <div className={styles[displayInput]}>
+                    <TextField id="inputField" sx={sxInputField} defaultValue={defautInputValue} onChange={inputChange}/>
+                    <Button sx={sxButtonUpdate} onClick={updateQte}>mettre à jour</Button>
+                </div>
+                <span className={styles.separatorLine}></span>
+                
+                <div >
+                    <a href="" className={styles[displayDeleteText]} onClick={applyDeleteItem}>
+                        supprimer
+                    </a>                        
+                </div>
             </div>
         </div>
 

@@ -5,7 +5,7 @@ import { makeStyles } from '@mui/styles';
 export const sxCompMagnifing = {color: "white", marginTop: "100%", marginLeft: "115%", width: "60px", height: "35px"};
 
 export const sxSelectForm = {
-        width: "115px",
+        width: "188px",
         height: "39px",
         borderStyle: "none",
         borderRadius: "15px",
@@ -40,7 +40,8 @@ export const sxButtonUpdate = {
         height: "30px",
         borderRadius: "10px",
         background: "#FFD814",
-        marginLeft: "11px",
+        marginLeft: "25px",
+        marginTop: "1px",
 
 }
 

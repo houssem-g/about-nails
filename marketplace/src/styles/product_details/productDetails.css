@@ -70,8 +70,10 @@
     height: 30px;
     justify-content: space-between;
     align-items: center;
+}
 
-    
+.buyProductChildDiv > p {
+    font-weight: bold;
 }
 .addToCart {
     background-color: rgb(71, 61, 61);

@@ -14,7 +14,8 @@ import ShoppingCart from '@mui/icons-material/ShoppingCart';
 import BasicMenu from "./select"
 import SignUp from './signup';
 import SignIn from './signin';
-
+import CartIcon from './cartIcon'
+import { FaSignInAlt } from 'react-icons/fa';
 
 function dynamicProps(index) {
   return {
@@ -36,7 +37,7 @@ const dict_paths = {
 };
 
 
-const Navbar = ({titles}) => {
+const Navbar = ({titles, totalQuantity}) => {
   let history = useNavigate();
 
   const goTo = (path) => {
@@ -54,6 +55,7 @@ const Navbar = ({titles}) => {
   let location = useLocation()
   location = location.pathname.split("?")[0] || location.pathname
   let curPath = dict_paths[location]
+  
   useEffect(() => {
     
     if (Object.keys(dict_paths).includes(location)) {
@@ -64,9 +66,10 @@ const Navbar = ({titles}) => {
     }
     }, [curPath, location]);
 
+
   const listOfTab = []
   titles.forEach((val, ind) => {
-    listOfTab.push(<Tab key = {val} label={val} {...dynamicProps(ind)} onClick={()=>goTo(All[val])}/>)
+    listOfTab.push(<Tab sx={{opacity:1, fontFamily: "Verdana"}} key = {val} label={val} {...dynamicProps(ind)} onClick={()=>goTo(All[val])}/>)
     }
   )
   const handleOpen = () => setOpenSignin(true);
@@ -125,7 +128,11 @@ const Navbar = ({titles}) => {
           </div>
             
           <div className={styles.buttonDiv}>
-              <Button color="inherit" onClick={handleOpen}>Login</Button>
+            
+              <Button sx={{display:"flex", flexDirection: "column"}} color="inherit" onClick={handleOpen}>
+                <FaSignInAlt style={{  marginBottom: "6px"}} size={30} color='white' />
+                Login
+              </Button>
 
               <Dialog onClose={handleCloseSignUp} open={open}>
                 <SignUp switcherProp = {val => switchSigninSignup(val)}/>
@@ -136,7 +143,10 @@ const Navbar = ({titles}) => {
               </Dialog>
           </div>
           <div className={styles.buttonDiv}>
-              <Button color="inherit" onClick={()=>goTo(All["Cart"])}>Cart</Button>
+              <Button sx={{display: "block"}} color="inherit" onClick={()=>goTo(All["Cart"])}>
+                <CartIcon totalQuantity={totalQuantity} />
+                Panier
+              </Button>
           </div>
         </div>
 

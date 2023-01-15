@@ -1,3 +1,119 @@
+@media screen and (min-width: 750px) {
+
+    .cartBodyTitle {
+        font-size: 15px;
+        font-weight: bold;
+        line-height: 20px;
+        font-family: Verdana;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .cartBodyDesc {
+        max-width: 660px;
+    }
+
+    .cartBodyPriceLeft {
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .cartBodyRightContainer {
+        padding: 0px 0px 0px 0px;
+        width: 18%;
+        margin-left: 23px;
+        display: flex;
+        flex-direction: column;
+    }
+    .CartPanierPrice{
+        float: right;
+        margin-bottom: -5px;
+    }
+    .cartQteContentMobile {
+        display: none;
+    }
+    .cartQteContent {
+        bottom: 0;
+        position: absolute;
+        display: flex;
+    }
+    .separatorLine{
+        display: inline-block;
+        border-left: 1px solid #ccc;
+        margin: 0 20px;
+        height: 25px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+
+    .deleteItem {
+        color: #007185;
+        display: inline-block;
+        margin-top: 10px;
+        margin-left: 7px;
+    }
+
+    .deleteItemForInput {
+        color: #007185;
+        display: inline-block;
+        margin-top: 5px;
+        margin-left: 7px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .cartBodyTitle {
+        font-size: 15px;
+        font-weight: bold;
+        line-height: 20px;
+        font-family: Verdana;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .CartPanierPrice, .cartBodyRightContainer, .cartQteContent, .separatorLine {
+        display: none;
+    }
+    .cartBodyPriceLeft {
+        font-weight: bold;
+        font-size: 20px;
+        margin-top: 15px;
+    }
+    .cartQteContentMobile {
+        display:flex;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        padding: 0px 20px 0px 15px;
+    }
+    
+
+    .deleteItem {
+        color: #007185;
+        display: inline-block;
+        margin-top: 9px;
+        margin-left: 10px;
+    }
+
+
+    .deleteItemForInput {
+        color: #007185;
+        display: inline-block;
+        margin-top: 4px;
+        margin-left: 20px;
+    }
+
+}
+
+.cartBodyLeftContainer {
+    display: block;
+    background-color: white;
+    border-bottom: solid 1px #b4b2b2;
+}
+.cartQteContent > .nohide {
+    padding: 0px 10px 0px 10px;
+}
 
 .cartFooter{
     bottom: 0px;
@@ -25,26 +141,19 @@
     margin-bottom: 13px;
 }
 
-.cartBodyLeftContainer {
+.cartBodyLeftContent {
     display: flex;
     flex-direction: row;
     background: white;
     padding: 0px 20px 0px 15px;
-    border-bottom: solid 1px #b4b2b2;
+    
 }
 .cartBodyLeft {
     margin-top: 10px;
     padding: 10px 10px 10px 10px;
 }
 .CartAllItems {
-    width: 80%;
-}
-.cartBodyRightContainer {
-    padding: 0px 0px 0px 0px;
-    width: 18%;
-    margin-left: 23px;
-    display: flex;
-    flex-direction: column;
+    flex-grow: 2
 }
 
 .priceTopRight {
@@ -70,9 +179,7 @@
     
 }
 
-.cartBodyDesc {
-    width: 660px;
-}
+
 .CartPanierHeader {
     background: white;
     padding: 20px 20px 20px 15px;
@@ -89,22 +196,9 @@
     float: right;
 }
 
-.CartPanierPrice{
-    float: right;
-    margin-bottom: -5px;
-}
 
-.cartBodyPriceLeft {
-    text-align: end;
-    font-weight: bold;
-}
-.cartBodyTitle {
-    font-size: 20px;
-    font-weight: bold;
-    line-height: 20px;
-    font-family: Verdana;
-}
-span, h1 {
+
+span, h1, h2, h3, h4, h5, h6, div {
     font-family: Verdana;
 }
 p {
@@ -129,29 +223,6 @@ p {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-}
-
-.cartQteContent {
-    bottom: 0;
-    position: absolute;
-    display: flex;
-}
-.deleteItem {
-    color: #007185;
-}
-
-.deleteItemContent {
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-.separatorLine{
-    display: inline-block;
-    border-left: 1px solid #ccc;
-    margin: 0 10px;
-    height: 25px;
-    margin-top: auto;
-    margin-bottom: auto;
 }
 
 .linkToOurSite {

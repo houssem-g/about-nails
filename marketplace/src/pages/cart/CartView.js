@@ -21,9 +21,7 @@ const CartView = props => {
             initTotPrice =  (parseFloat(initTotPrice) + parseFloat(obj.totPrice)).toFixed(2);
             initTotQte += parseInt(obj.qte);
             res.push(obj)
-            
         })
-
     }
 
     const [displayBodyCart, setDisplayBodyCart] = res.length ? React.useState("CartPanierHeader") : React.useState("hide") 
@@ -31,18 +29,26 @@ const CartView = props => {
     let [resUpdated, setResUpdated] = React.useState(res)
     let [totPageQte, setTotPageQte] = React.useState(initTotQte)
     let [totPagePrice, setTotPagePrice] = React.useState(parseFloat(initTotPrice).toFixed(2))
+    const [styleToDisplay, setStyleToDisplay] = React.useState("mobileItemDisplay")
     
     const getQteAndTotPrice = (id, qte) => {
         let cntElement = 0
         let sumElement = 0.0
+        let updatedItem = ""
         resUpdated.forEach((el) => {
             if (el._id == id) {
                 el.qte = qte
                 el.totPrice = parseFloat(el.price * qte).toFixed(2);
             }
+            if(updatedItem == "") {
+                updatedItem += JSON.stringify(el)
+            } else {
+                updatedItem += ";" + JSON.stringify(el)
+            }
             cntElement = parseInt(cntElement) + parseInt(el.qte)
             sumElement = (parseFloat(sumElement) + parseFloat(el.totPrice)).toFixed(2)
         })
+        localStorage.setItem("items_selected", updatedItem)
         setTotPageQte(cntElement)
         setTotPagePrice(sumElement)
     }
@@ -70,11 +76,19 @@ const CartView = props => {
         setTotPagePrice(sumElement)
     }
 
-
+    window.addEventListener('resize', function(event) {
+        if(window.innerWidth < 750) {
+          setStyleToDisplay("mobileItemDisplay")
+        }
+        else {
+          setStyleToDisplay("mobileItemHide")
+        }
+        
+      });
 
     return (
         <div style={styles.containerHomeView}>
-            <Navbar titles={["Accueil", "Nouveautés", "Collections", "Catalogue", "Gel Pads", "Avis clients", "FAQ"]} />
+            <Navbar titles={["Accueil", "Nouveautés", "Collections", "Catalogue", "Gel Pads", "Avis clients", "FAQ"]} totalQuantity={totPageQte}/>
             <div className={styles.CartBodycontainer}>
                 <div className={styles.CartAllItems}>
                     <div id="bodyCart" className={styles[displayBodyCart]}>
@@ -93,7 +107,7 @@ const CartView = props => {
                     </div>
                     {resUpdated.map((item) => {
                         return (
-                            <Item item={item} getQteAndTotPrice={getQteAndTotPrice} updateItems={updateItems}/>
+                            <Item key={item._id} item={item} getQteAndTotPrice={getQteAndTotPrice} updateItems={updateItems}/>
                         )
                     })}
                     <div className={styles.CartPanierFooter}>
