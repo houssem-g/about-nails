@@ -6,6 +6,7 @@ export const Analysis= "/analysis/:currency?";
 export const Scoring = "/scoring/";
 export const ProductDetail = "/product/:id";
 export const Cart = "/cart";
+export const FAQ = "/faq";
 export function val(val) {
   throw new Error('Function not implemented.');
 }

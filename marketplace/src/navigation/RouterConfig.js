@@ -4,7 +4,9 @@ import Home from "../pages/home";
 import Analyse  from "../pages/analysis"; 
 import Product  from "../pages/product_details";
 import CartPage from "../pages/cart"
-import { ROOT, Cryptomonnaies, Analysis, Scoring, ProductDetail, Cart } from "./constants";
+import FaqPage from "../pages/faq";
+
+import { ROOT, Cryptomonnaies, Analysis, Scoring, ProductDetail, Cart, FAQ } from "./constants";
 // import { dark, light } from "../styles/muiTheme";
 
 export const RouterConfig = () => {
@@ -18,6 +20,7 @@ export const RouterConfig = () => {
         <Route exact path={Scoring} element={<Analyse/>} />
         <Route exact path={ProductDetail} element={<Product/>} />
         <Route exact path={Cart} element={<CartPage/>} />
+        <Route exact path={FAQ} element={<FaqPage/>} />
         <Route exact path="/" element={<Home/>} />
         <Route exact path="/about" element={<Home/>} />
         {/* <Route exact path={PAGE1} element={<Page1/>} /> */}
