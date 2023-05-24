@@ -20,12 +20,14 @@ const ProductView = props => {
     useEffect(() => {
         let items = localStorage.getItem("items_selected")
         let all_items = []
+
         if (data[0] && Object.values(data[0]).length){
             all_items.push(JSON.stringify(data[0]))
             data[0] = {...data[0], ...{qte: 1, totPrice: data[0].price} }
-            if(items && Object.keys(items)) {
+            if( items != null) {
                 localStorage.setItem("items_selected", JSON.stringify(data[0]) + ";"+ items);  
-            } else {
+            } 
+            else {
               localStorage.setItem("items_selected", JSON.stringify(data[0]));   
             }
         }

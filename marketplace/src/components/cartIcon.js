@@ -15,7 +15,7 @@ const CartIcon = ({ totalQuantity }) => {
     // this is for initialisation of number of items in cart
     useEffect(() => {
         let nb_article = 0
-        if(localStorageItems != undefined && localStorageItems != ""){
+        if(localStorageItems != undefined && localStorageItems != "" && localStorageItems != null){
             localStorageItems.split(";").forEach((el) => {
                 nb_article += parseInt(JSON.parse(el).qte)
             })

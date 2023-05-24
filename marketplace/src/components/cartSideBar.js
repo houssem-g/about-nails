@@ -14,7 +14,7 @@ function CartSidebar({ onTotalQuantityChange }) {
 
     useEffect(() => {
         const itemsString = localStorageItems;
-        if (itemsString) {
+        if (itemsString != null && itemsString) {
             const itemsArray = itemsString.split(';');
             let total = 0.0;
             const parsedItems = itemsArray.map((itemString) => {
